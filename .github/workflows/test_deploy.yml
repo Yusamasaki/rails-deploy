@@ -16,7 +16,7 @@ jobs:
           ruby-version: 2.6.8
 
       - name: Cache bundler
-        uses: actions/chache@v2
+        uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: bundle-v1-${{ hashFiles('Gemfile.lock')}}
