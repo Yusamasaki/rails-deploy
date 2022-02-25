@@ -43,3 +43,16 @@ jobs:
       - run: RAILS_ENV=test bundle exec rails assets:precompile
 
       - run: bundle exec rails test
+
+  deploy:
+    name: Deploy app to AWS
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install SSH key
+      run: |
+        mkdir -p -m 700 ~/.ssh
+        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/rails-deploy-webapp
+        chmod 600 ~/.ssh/rails-deploy-webapp
