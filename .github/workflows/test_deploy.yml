@@ -69,3 +69,4 @@ jobs:
           RAILS_ENV=production ~/.rbenv/shims/bundle exec rails assets:precompile &&
           RAILS_ENV=production ~/.rbenv/shims/bundle exec rails db:migrate &&
           ~/.rbenv/shims/bundle exec pumactl restart"
+
